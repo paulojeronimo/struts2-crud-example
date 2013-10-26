@@ -2,3 +2,4 @@ target
 .idea
 *.ipr
 *.iml
+/nb-configuration.xml
