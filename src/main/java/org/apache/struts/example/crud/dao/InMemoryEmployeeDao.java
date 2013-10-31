@@ -20,10 +20,12 @@ public class InMemoryEmployeeDao implements EmployeeDao {
         departmentsMap = deptDao.getDepartmentsMap();
     }
 
+    @Override
     public List getAllEmployees() {
         return employees;
     }
 
+    @Override
     public Employee getEmployee(Integer id) {
         Employee emp = null;
         for (Employee employee : employees) {
@@ -35,6 +37,7 @@ public class InMemoryEmployeeDao implements EmployeeDao {
         return emp;
     }
 
+    @Override
     public void update(Employee emp) {
         Integer id = emp.getEmployeeId();
         for (int i = 0; i < employees.size(); i++) {
@@ -47,6 +50,7 @@ public class InMemoryEmployeeDao implements EmployeeDao {
         }
     }
 
+    @Override
     public void insert(Employee emp) {
         int lastId = 0;
         for (Employee temp : employees) {
@@ -59,6 +63,7 @@ public class InMemoryEmployeeDao implements EmployeeDao {
         employees.add(emp);
     }
 
+    @Override
     public void delete(Integer id) {
         for (int i = 0; i < employees.size(); i++) {
             Employee tempEmp = employees.get(i);
