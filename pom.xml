@@ -13,7 +13,11 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <struts2.version>2.3.16.1</struts2.version>
+        <!-- This version does't work on JBoss EAP 7.
+             Details on struts2-core.2.1.6.error.log.
+        <struts2.version>2.1.6</struts2.version>
+        -->
+        <struts2.version>2.3.32</struts2.version>
     </properties>
 
     <dependencies>
