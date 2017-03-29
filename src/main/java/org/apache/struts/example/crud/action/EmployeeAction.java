@@ -2,6 +2,8 @@ package org.apache.struts.example.crud.action;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.Preparable;
+
+import org.apache.struts.example.crud.model.Department;
 import org.apache.struts.example.crud.model.Employee;
 import org.apache.struts.example.crud.service.DefaultDepartmentService;
 import org.apache.struts.example.crud.service.DefaultEmployeeService;
@@ -11,30 +13,34 @@ import org.apache.struts.example.crud.service.DepartmentService;
 import java.util.List;
 
 public class EmployeeAction extends ActionSupport implements Preparable {
+    /**
+     * 
+     */
+    private static final long serialVersionUID = 1L;
     private EmployeeService empService = new DefaultEmployeeService();
     private DepartmentService deptService = new DefaultDepartmentService();
-    
+
     private Employee employee;
-    private List employees;
-    private List departments;
+    private List<Employee> employees;
+    private List<Department> departments;
 
     /**
-     * Loads employee data in case of editing, and loads departments in any case,
-     * to be displayed even in case validation fails.
+     * Loads employee data in case of editing, and loads departments in any
+     * case, to be displayed even in case validation fails.
      * 
-     * @throws Exception 
+     * @throws Exception
      */
     @Override
     public void prepare() throws Exception {
-        //deparments list will be always displayed, even if validation fails
+        // deparments list will be always displayed, even if validation fails
         departments = deptService.getAllDepartments();
         if (employee != null && employee.getEmployeeId() != null) {
-            //retrieves the employee from data source in case of editing and 
-            //employee id. exists
+            // retrieves the employee from data source in case of editing and
+            // employee id. exists
             employee = empService.getEmployee(employee.getEmployeeId());
         }
     }
-    
+
     /**
      * Adds or updates the employee given by getEmployee().
      */
@@ -71,11 +77,11 @@ public class EmployeeAction extends ActionSupport implements Preparable {
         this.employee = employee;
     }
 
-    public List getEmployees() {
+    public List<Employee> getEmployees() {
         return employees;
     }
 
-    public List getDepartments() {
+    public List<Department> getDepartments() {
         return departments;
     }
 

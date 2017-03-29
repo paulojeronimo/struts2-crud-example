@@ -21,7 +21,7 @@ public class InMemoryEmployeeDao implements EmployeeDao {
     }
 
     @Override
-    public List getAllEmployees() {
+    public List<Employee> getAllEmployees() {
         return employees;
     }
 

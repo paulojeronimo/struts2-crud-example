@@ -1,9 +1,10 @@
 package org.apache.struts.example.crud.service;
 
+import java.util.List;
+
 import org.apache.struts.example.crud.dao.DepartmentDao;
 import org.apache.struts.example.crud.dao.InMemoryDepartmentDao;
-
-import java.util.List;
+import org.apache.struts.example.crud.model.Department;
 
 public class DefaultDepartmentService implements DepartmentService {
 
@@ -13,7 +14,7 @@ public class DefaultDepartmentService implements DepartmentService {
         this.dao = new InMemoryDepartmentDao();
     }
 
-    public List getAllDepartments() {
+    public List<Department> getAllDepartments() {
         return dao.getAllDepartments();
     }
 

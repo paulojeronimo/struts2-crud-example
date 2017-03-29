@@ -3,3 +3,6 @@ target
 *.ipr
 *.iml
 /nb-configuration.xml
+/.classpath
+/.project
+/.settings
