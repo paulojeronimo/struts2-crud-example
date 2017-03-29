@@ -2,9 +2,14 @@
 <!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
         "http://struts.apache.org/dtds/struts-2.3.dtd">
 <struts>
-    <constant name="struts.devMode" value="true"/>
+    <constant
+        name="struts.devMode"
+        value="true" />
 
-    <package name="default" namespace="/" extends="struts-default">
+    <package
+        name="default"
+        namespace="/"
+        extends="struts-default">
         <interceptors>
             <interceptor-stack name="appDefault">
                 <interceptor-ref name="paramsPrepareParamsStack">
@@ -14,17 +19,25 @@
                 </interceptor-ref>
             </interceptor-stack>
         </interceptors>
-		
-        <default-interceptor-ref name="appDefault" />        
-        
-        <default-action-ref name="index"/>
-		
-        <action name="index" class="org.apache.struts.example.crud.action.EmployeeAction" method="list">
+
+        <default-interceptor-ref name="appDefault" />
+
+        <default-action-ref name="index" />
+
+        <action
+            name="index"
+            class="org.apache.struts.example.crud.action.EmployeeAction"
+            method="list">
             <result name="success">/WEB-INF/jsp/employees.jsp</result>
-            <interceptor-ref name="basicStack"/>
+            <interceptor-ref name="basicStack" />
         </action>
-        <action name="*Employee" class="org.apache.struts.example.crud.action.EmployeeAction" method="{1}">
-            <result name="success" type="redirectAction">index</result>
+        <action
+            name="*Employee"
+            class="org.apache.struts.example.crud.action.EmployeeAction"
+            method="{1}">
+            <result
+                name="success"
+                type="redirectAction">index</result>
             <result name="input">/WEB-INF/jsp/employeeForm.jsp</result>
         </action>
     </package>
