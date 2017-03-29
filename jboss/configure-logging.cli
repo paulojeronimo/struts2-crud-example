@@ -1,0 +1,7 @@
+batch
+
+/subsystem=logging/periodic-rotating-file-handler=STRUTS2_CRUD_EXAMPLE_FILE:add(suffix=".yyyy.MM.dd", file={"path"=>"struts2-crud-example.log", "relative-to"=>"jboss.server.log.dir"})
+/subsystem=logging/async-handler=STRUTS2_CRUD_EXAMPLE_ASYNC:add(queue-length=1024,overflow-action=BLOCK,subhandlers=["STRUTS2_CRUD_EXAMPLE_FILE"]) 
+/subsystem=logging/logger=org.apache.struts.example.crud:add(level=INFO,handlers=[STRUTS2_CRUD_EXAMPLE_ASYNC])
+
+run-batch

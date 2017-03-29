@@ -1,0 +1,8 @@
+batch
+
+/subsystem=logging/logger=org.apache.struts.example.crud:remove
+/subsystem=logging/async-handler=STRUTS2_CRUD_EXAMPLE_ASYNC:remove
+/subsystem=logging/periodic-rotating-file-handler=STRUTS2_CRUD_EXAMPLE_FILE:remove
+run-batch
+
+:reload
