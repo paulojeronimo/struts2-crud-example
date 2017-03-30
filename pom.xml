@@ -17,10 +17,18 @@
         <version.wildfly.maven.plugin>1.0.2.Final</version.wildfly.maven.plugin>
         <!-- Dependencies versions -->
         <!-- JBoss -->
-        <version.jboss.bom.eap>7.0.4.GA</version.jboss.bom.eap>
+        <version.jboss.bom.eap>7.0.5.GA</version.jboss.bom.eap>
         <version.jboss.spec.javaee.7.0>1.0.3.Final-redhat-6</version.jboss.spec.javaee.7.0>
         <!-- Struts2 -->
         <struts2.version>2.3.32</struts2.version>
+        <!-- Hibernate -->
+        <hibernate-core.version>3.3.0.SP1</hibernate-core.version>
+        <hibernate-entitymanager.version>3.4.0.GA</hibernate-entitymanager.version>
+        <!-- JUnit:begin -->
+        <junit.version>4.12</junit.version>
+        <!-- https://www.slf4j.org/faq.html#IllegalAccessError -->
+        <slf4j-nop.version>1.4.2</slf4j-nop.version>
+        <!-- JUnit:end -->
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -66,6 +74,40 @@
             <artifactId>hibernate-jpa-2.1-api</artifactId>
             <scope>provided</scope>
         </dependency>
+        <!-- Hibernate:begin -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+            <version>${hibernate-core.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-entitymanager</artifactId>
+            <version>${hibernate-entitymanager.version}</version>
+            <scope>runtime</scope>
+        </dependency>
+        <!-- Hibernate:end -->
+        <dependency>
+            <groupId>com.oracle</groupId>
+            <artifactId>ojdbc6</artifactId>
+            <version>11.2.0</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- JUnit:begin -->
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>${junit.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-nop</artifactId>
+            <version>${slf4j-nop.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <!-- JUnit:end -->
     </dependencies>
     <build>
         <finalName>struts-crud</finalName>

@@ -6,3 +6,5 @@ target
 /.classpath
 /.project
 /.settings
+/oracle/create-database
+/oracle/drop-database

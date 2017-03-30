@@ -1,0 +1,30 @@
+= Struts2 CRUD sample
+:toc:
+:numbered:
+
+This is a sample Struts2 CRUD application migrated to run on a JBoss EAP 7. Data persistence (on Oracle) is managed by Hibernate.
+
+== Requirements
+
+* Install https://access.redhat.com/jbossnetwork/restricted/softwareDownload.html?softwareId=43891[Red Hat Enterprise Application Platform 7.0.0] in https://github.com/paulojeronimo/jboss-scripts[someway].
+** Apply https://access.redhat.com/jbossnetwork/restricted/softwareDownload.html?softwareId=50411[Red Hat JBoss Enterprise Application Platform 7.0 Update 05].
+** Download and install `ojdbc6.jar` (availabe on http://www.oracle.com/technetwork/apps-tech/jdbc-112010-090769.html[Oracle Database 11g Release 2 JDBC Drivers]) on JBoss EAP 7.
+* Download and install https://access.redhat.com/jbossnetwork/restricted/softwareDownload.html?softwareId=43861[Red Hat JBoss Enterprise Application Platform 7.0.0 Maven Repository].
+** Apply https://access.redhat.com/jbossnetwork/restricted/softwareDownload.html?softwareId=50401[Red Hat JBoss Enterprise Application Platform 7.0 Update 05 Incremental Maven Repository].
+** https://access.redhat.com/documentation/en-us/red_hat_jboss_enterprise_application_platform/7.0/html/development_guide/using_maven_with_eap[Configure your maven settings] to use this repo.
+* Install http://www.oracle.com/technetwork/database/database-technologies/express-edition/overview/index.html[Oracle XE] in https://github.com/paulojeronimo/docker-oracle-xe[someway (pt-br)].
+* http://www.oracle.com/technetwork/developer-tools/sqlcl/overview/index.html[Install Oracle SQLcl].
+** Configure (and export) `SQLCL_HOME` variable pointing it to your installation.
+** Oracle SQL will be used to run link:oracle[oracle SQL scripts].
+* Start Oracle Database
+
+== Steps
+
+=== Test application (out of JBoss EAP container)
+
+----
+./oracle/create-links
+./oracle/create-database
+./oracle/install-driver-on-maven-repo
+mvn test
+----

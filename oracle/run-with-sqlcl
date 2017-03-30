@@ -1,0 +1,12 @@
+#!/bin/bash
+BASE_DIR=`cd "$(dirname "$0")"; pwd`
+BASE_NAME=`basename "$0"`
+SQLCL_HOME=${SQLCL_HOME:-~/tools/sqlcl}
+sql="$SQLCL_HOME"/bin/sql
+
+[ -x "$sql" ] || { echo "Can't execute sql command!"; exit 1; }
+
+f=/tmp/$BASE_NAME.$USER.sql
+cp "$BASE_DIR/$BASE_NAME".sql $f
+echo "quit;">>$f
+"$sql" -S system/oracle@//localhost:1521 @$f

@@ -1,0 +1,11 @@
+#!/bin/bash
+ORACLE_DRIVER=${ORACLE_DRIVER:-~/Downloads/softwares/oracle-jdbc-drivers/ojdbc6.jar}
+
+[ -f "$ORACLE_DRIVER" ] || { echo "ORACLE_DRIVER (\"$ORACLE_DRIVER\") not found!"; exit 1; }
+
+mvn install:install-file \
+    -Dfile=$ORACLE_DRIVER \
+    -DgroupId=com.oracle \
+    -DartifactId=ojdbc6 \
+    -Dversion=11.2.0 \
+    -Dpackaging=jar

@@ -1,0 +1,8 @@
+#!/bin/bash
+BASE_DIR=`cd "$(dirname "$0")"; pwd`
+cd "$BASE_DIR"
+
+for f in *.sql
+do
+    ln -sf run-with-sqlcl `basename $f .sql`
+done
