@@ -1,24 +1,23 @@
 package org.apache.struts.example.crud.action;
 
-import com.opensymphony.xwork2.ActionSupport;
-import com.opensymphony.xwork2.Preparable;
+import java.util.List;
 
 import org.apache.struts.example.crud.model.Department;
 import org.apache.struts.example.crud.model.Employee;
-import org.apache.struts.example.crud.service.DefaultDepartmentService;
-import org.apache.struts.example.crud.service.DefaultEmployeeService;
-import org.apache.struts.example.crud.service.EmployeeService;
 import org.apache.struts.example.crud.service.DepartmentService;
+import org.apache.struts.example.crud.service.EmployeeService;
+import org.apache.struts.example.crud.service.ServiceLocator;
 
-import java.util.List;
+import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.Preparable;
 
 public class EmployeeAction extends ActionSupport implements Preparable {
-    /**
-     * 
-     */
+
     private static final long serialVersionUID = 1L;
-    private EmployeeService empService = new DefaultEmployeeService();
-    private DepartmentService deptService = new DefaultDepartmentService();
+    private EmployeeService empService = (EmployeeService) ServiceLocator.getServiceLocator()
+            .lookup(EmployeeService.class);
+    private DepartmentService deptService = (DepartmentService) ServiceLocator.getServiceLocator()
+            .lookup(DepartmentService.class);
 
     private Employee employee;
     private List<Employee> employees;
