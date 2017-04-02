@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jboss-deployment-structure>
+    <deployment>
+        <exclusions>
+            <module name="org.hibernate" />
+            <module name="org.hibernate" slot="main" />
+            <module name="org.hibernate.validator" slot="main" />
+            <module name="javax.validation.api" slot="main" />
+            <module name="org.hibernate.validator.cdi" slot="main" />
+        </exclusions>
+    </deployment>
+</jboss-deployment-structure>

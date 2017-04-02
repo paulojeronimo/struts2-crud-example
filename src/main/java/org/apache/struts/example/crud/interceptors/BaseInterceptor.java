@@ -20,7 +20,7 @@ public class BaseInterceptor {
         try {
             Object bean = invocationContext.getTarget();
             Class<?> clazz = bean.getClass();
-            LOG.debug("clazz: " + clazz.getName());
+            LOG.warn("clazz: " + clazz.getName());
             if (clazz.getName().contains(UNDERLINE)) {
                 clazz = Class.forName(clazz.getName().split(UNDERLINE)[0]);
             }
@@ -29,7 +29,7 @@ public class BaseInterceptor {
             Field fieldUnitEntityManager = clazz.getDeclaredField(unitConfiguration.entityManagerField());
             EntityManagerSession.getInstance().putEntityManagerFactory(unitConfiguration.persistenceUnitName(),
                     (EntityManagerFactory) fieldUnitEntityManager.get(bean));
-            LOG.debug("EntityManagerFactory " + unitConfiguration.persistenceUnitName() + " added to EntityManagerSession");
+            LOG.warn("EntityManagerFactory " + unitConfiguration.persistenceUnitName() + " added to EntityManagerSession");
             return invocationContext.proceed();
         } catch (Exception ex) {
             LOG.error(ex);

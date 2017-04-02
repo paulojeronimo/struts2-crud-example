@@ -1,0 +1,2 @@
+- Change to hibernate-core:3.3.2.GA on pom.xml.hibernate3 doesn't works
+- Change to hibernate-core:3.6.10.GA, slf4j-nop:1.6.1 on pom.xml.hibernate3 doesn't works

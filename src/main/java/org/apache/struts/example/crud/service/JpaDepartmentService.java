@@ -24,7 +24,7 @@ import org.apache.struts.example.crud.model.Department;
 @TransactionManagement(TransactionManagementType.CONTAINER)
 @TransactionAttribute(TransactionAttributeType.SUPPORTS)
 @Interceptors({ BaseInterceptor.class })
-@PersistenceUnitConfiguration(persistenceUnitName = "struts2-crud-example", entityManagerField = "sigmeEntityManager")
+@PersistenceUnitConfiguration(persistenceUnitName = "struts2-crud-example", entityManagerField = "factory")
 public class JpaDepartmentService implements DepartmentService {
     public static final String _persistenceUnitName = "struts2-crud-example";
     

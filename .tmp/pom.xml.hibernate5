@@ -17,13 +17,10 @@
         <version.wildfly.maven.plugin>1.0.2.Final</version.wildfly.maven.plugin>
         <!-- Dependencies versions -->
         <!-- JBoss -->
-        <version.jboss.bom.eap>7.0.5.GA</version.jboss.bom.eap>
+        <version.jboss.bom.eap>7.0.4.GA</version.jboss.bom.eap>
         <version.jboss.spec.javaee.7.0>1.0.3.Final-redhat-6</version.jboss.spec.javaee.7.0>
         <!-- Struts2 -->
         <struts2.version>2.3.32</struts2.version>
-        <!-- Hibernate -->
-        <hibernate-core.version>3.6.10.Final</hibernate-core.version>
-        <hibernate-entitymanager.version>3.6.10.Final</hibernate-entitymanager.version>
         <!-- JUnit:begin -->
         <junit.version>4.12</junit.version>
         <!-- https://www.slf4j.org/faq.html#IllegalAccessError -->
@@ -69,32 +66,21 @@
             <artifactId>jboss-logging</artifactId>
             <scope>provided</scope>
         </dependency>
+        <!-- Hibernate:begin -->
         <dependency>
             <groupId>org.hibernate.javax.persistence</groupId>
             <artifactId>hibernate-jpa-2.1-api</artifactId>
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>org.jboss.spec.javax.ejb</groupId>
-            <artifactId>jboss-ejb-api_3.2_spec</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.jboss.spec.javax.interceptor</groupId>
-            <artifactId>jboss-interceptors-api_1.2_spec</artifactId>
-            <scope>provided</scope>
-        </dependency>
-        <!-- Hibernate:begin -->
-        <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
-            <version>${hibernate-core.version}</version>
-            <!-- <scope>runtime</scope> -->
+            <scope>runtime</scope>
         </dependency>
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-entitymanager</artifactId>
-            <version>${hibernate-entitymanager.version}</version>
-            <!-- <scope>runtime</scope> -->
+            <scope>runtime</scope>
         </dependency>
         <!-- Hibernate:end -->
         <dependency>
@@ -108,12 +94,6 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>${junit.version}</version>
-            <scope>test</scope>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-nop</artifactId>
-            <version>${slf4j-nop.version}</version>
             <scope>test</scope>
         </dependency>
         <!-- JUnit:end -->

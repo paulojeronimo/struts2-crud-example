@@ -1,0 +1,1 @@
+* descobrir como fazer o SchemaExport ler o persitence.xml em src/test/resources/META-INF ao invés de em src/main/resources/META-INF
